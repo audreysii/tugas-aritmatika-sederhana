@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalkulator Sederhana</title>
+</head>
+<body>
+  <h3>Kalkulator Sederhana</h3>
+
+  <label>Input Bilangan 1:</label>
+  <input type="number" id="bil1"><br><br>
+
+  <label>Input Bilangan 2:</label>
+  <input type="number" id="bil2"><br><br>
+
+  <button onclick="hitung('+')">+</button>
+  <button onclick="hitung('-')">-</button>
+  <button onclick="hitung('*')">*</button>
+  <button onclick="hitung('/')">/</button>
+
+  <h3>Hasil: <span id="hasil"></span></h3>
+
+  <script>
+    function hitung(operator) {
+      // Ambil nilai input dan ubah jadi number
+      let a = parseFloat(document.getElementById('bil1').value);
+      let b = parseFloat(document.getElementById('bil2').value);
+      let result = 0;
+
+ 
+      if (operator === '+') {
+        result = a + b;
+      } else if (operator === '-') {
+        result = a - b;
+      } else if (operator === '*') {
+        result = a * b;
+      } else if (operator === '/') {
+        if (b !== 0) {
+          result = a / b;
+        } else {
+          alert("Bilangan pembagi tidak boleh 0");
+          return;
+        }
+      }
+
+      // Tampilkan hasil
+      document.getElementById('hasil').textContent = result;
+    }
+  </script>
+</body>
+</html>
